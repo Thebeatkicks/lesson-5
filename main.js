@@ -40,16 +40,19 @@ function deposit() {
 
 function withdrawal() {
     let removeMoney = parseFloat(prompt("How much would you like to withdraw from your account?"))
-    account["balance"] = account.balance - removeMoney;
-    //console.log(account.balance)
-    alert("You have withdrawn: " + removeMoney + "kr! You now have " + account.balance + "kr, on your account!" );
+    if (removeMoney > account.balance) {
+        accountError();
+    } else {
+        account["balance"] = account.balance - removeMoney;
+        alert("You have withdrawn: " + removeMoney + "kr! You now have " + account.balance + "kr, on your account!" );
+    }
 }
 
 function getAccountName() {
     alert("This account belongs to " + account.accountName + ".")
 }
 function accountError() {
-
+    alert("You dont have that much money on your account")
 }
 function exitAccount() {
     alert("See you again soon! You are now logged out!")
@@ -57,4 +60,8 @@ function exitAccount() {
 
 
 atm();
+
+
+
+// Forever go to atm(); if break stop if choice 5 is picked!
 
