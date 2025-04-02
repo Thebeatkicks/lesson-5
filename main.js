@@ -1,33 +1,69 @@
-/*Instructions: 
 
-BANK ACCOUNT 
 
-Since this is a little bit longer assignment, this will be the only assignment that you will get for this week 
+const account = {
+    accountName: "Henrik Martini",
+    balance: 0,
+}
 
- 
+ function getBalance() {
+    console.log("You have: " + account.balance + "kr, on your account.")
+}
 
-REQUIREMENTS 
-
-Create an object called account that has the following properties: 
-
-accountName, should be the data type string 
-
-This property should contain the name of the account holder 
-
- 
-
-- balance, should be the data type number 
-
-this property should contain the total amount of the account 
-
- 
-
+ /*
  - getBalance, should be a function 
+
 
 this function should display the total amount of the account to the user 
 
  
+*/
 
+function deposit() {
+    addMoney = prompt("How much would you like to add to your account?");
+    account["balance"] = addMoney;
+    console.log("You have added: " + addMoney + "kr!");
+
+}
+
+function atm() {
+    const message = parseFloat(
+        prompt(
+            "Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit"
+        )
+    );
+    switch (message) {
+        case 1:
+            getBalance();
+            break
+        case 2:
+            deposit();
+            break
+        case 3:
+            withdrawal();
+            break
+        case 4:
+        case 5:
+    }
+}
+
+
+function withdrawal() {
+
+}
+function getAccountName () {
+
+}
+function accountError() {
+
+}
+function exitAccount() {
+
+}
+
+
+atm();
+
+/*
  - deposit, also a function 
 
  this function should be able to deposit money onto the balance of the account 
@@ -89,39 +125,13 @@ Automatiskt genererad beskrivning
 
  */
 
-function atm() {
-    const message = parseFloat(
-        prompt(
-            "Selectg at choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit"
-        )
-    );
-    switch (message) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-    }
-}
+/*
+1. create an object
+2. prompt questions to give data to the object
+3. when all questions are answered prompt atm function
+4. code all atm choises
+4. add an error? 
 
-object account
+switch/case
 
-
-function getBalance() {
-
-}
-function deposit() {
-
-}
-function withdrawal() {
-
-}
-function getAccountName () {
-
-}
-function accountError() {
-
-}
-function exitAccount() {
-
-}
+*/
