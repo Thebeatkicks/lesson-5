@@ -2,27 +2,7 @@
 
 const account = {
     accountName: "Henrik Martini",
-    balance: 0,
-}
-
- function getBalance() {
-    console.log("You have: " + account.balance + "kr, on your account.")
-}
-
- /*
- - getBalance, should be a function 
-
-
-this function should display the total amount of the account to the user 
-
- 
-*/
-
-function deposit() {
-    addMoney = prompt("How much would you like to add to your account?");
-    account["balance"] = addMoney;
-    console.log("You have added: " + addMoney + "kr!");
-
+    balance: 2,
 }
 
 function atm() {
@@ -42,22 +22,37 @@ function atm() {
             withdrawal();
             break
         case 4:
+            getAccountName()
+            break
         case 5:
     }
 }
 
+ function getBalance() {
+    alert("You have: " + account.balance + "kr, on your account.");
+}
+
+function deposit() {
+    let addMoney = parseFloat(prompt("How much would you like to add to your account?"))
+    account["balance"] = account.balance + addMoney;
+    alert("You have added: " + addMoney + "kr! You now have " + account.balance + "kr, on your account!" );
+}
 
 function withdrawal() {
-
+    let removeMoney = parseFloat(prompt("How much would you like to withdraw from your account?"))
+    account["balance"] = account.balance - removeMoney;
+    console.log(account.balance)
+    //alert("You have withdrawn: " + removeMoney + "kr! You now have " + account.balance + "kr, on your account!" );
 }
-function getAccountName () {
 
+function getAccountName() {
+    alert("This account belongs to " + account.accountName + ".")
 }
 function accountError() {
 
 }
 function exitAccount() {
-
+    alert("See you again soon! You are now logged out!")
 }
 
 
@@ -130,7 +125,7 @@ Automatiskt genererad beskrivning
 2. prompt questions to give data to the object
 3. when all questions are answered prompt atm function
 4. code all atm choises
-4. add an error? 
+4. add an error? if removeMoney > account.balance, return to atm()
 
 switch/case
 
