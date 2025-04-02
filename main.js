@@ -1,30 +1,33 @@
 const account = {
     accountName: "Henrik Martini",
     balance: 2,
+    exit: false,
 }
 
 function atm() {
-    const message = parseFloat(
-        prompt(
-            "Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit"
-        )
-    );
-    switch (message) {
-        case 1:
-            getBalance();
-            break
-        case 2:
-            deposit();
-            break
-        case 3:
-            withdrawal();
-            break
-        case 4:
-            getAccountName();
-            break
-        case 5:
-            exitAccount();
-            break
+    while (!account.exit) {
+        const message = parseFloat(
+            prompt(
+                "Select a choice\n 1.) See balance\n 2.) Make a deposit\n 3.) Make a withdrawal\n 4.) Get account name\n 5.) Exit\n"
+            )
+        );
+        switch (message) {
+            case 1:
+                getBalance();
+                break
+            case 2:
+                deposit();
+                break
+            case 3:
+                withdrawal();
+                break
+            case 4:
+                getAccountName();
+                break
+            case 5:
+                exitAccount();
+                break
+        }
     }
 }
 
@@ -55,13 +58,9 @@ function accountError() {
     alert("You dont have that much money on your account")
 }
 function exitAccount() {
+    
     alert("See you again soon! You are now logged out!")
+    account.exit = true; 
 }
 
-
 atm();
-
-
-
-// Forever go to atm(); if break stop if choice 5 is picked!
-
